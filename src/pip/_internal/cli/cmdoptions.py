@@ -269,6 +269,14 @@ skip_requirements_regex = partial(
     help=SUPPRESS_HELP,
 )  # type: Callable[..., Option]
 
+no_warn_deprecation = partial(
+    Option,
+    '--no-warn-deprecation',
+    dest='no_warn_deprecation',
+    action='store_true',
+    default=False,
+    help="Silence messsage for Python 2.7 deprecation",
+)  # type: Callable[..., Option]
 
 def exists_action():
     # type: () -> Option
@@ -915,6 +923,7 @@ general_group = {
         no_cache,
         disable_pip_version_check,
         no_color,
+        no_warn_deprecation,
     ]
 }  # type: Dict[str, Any]
 
