@@ -152,7 +152,7 @@ class Command(object):
             user_log_file=options.log,
         )
 
-        if sys.version_info[:2] == (3, 4) and options.no_warn_deprecation:
+        if sys.version_info[:2] == (3, 4) and not options.no_warn_deprecation:
             deprecated(
                 "Python 3.4 support has been deprecated. pip 19.1 will be the "
                 "last one supporting it. Please upgrade your Python as Python "
@@ -160,7 +160,7 @@ class Command(object):
                 replacement=None,
                 gone_in='19.2',
             )
-        elif sys.version_info[:2] == (2, 7) and options.no_warn_deprecation:
+        elif sys.version_info[:2] == (2, 7) and not options.no_warn_deprecation:
             message = (
                 "A future version of pip will drop support for Python 2.7."
             )
